@@ -47,3 +47,34 @@ will be done automatically.
 You can continuously mirror your set of repositories (or just a 
 single one) by setting up a cron job which will run the script
 periodically.
+
+For that to work without user prompt you will need to set passwordless 
+ssh access. 
+
+First generate SSH key with no password with `ssh-keygen -t rsa -C "mail@somewhere.com"` 
+and hit enter twice when it asks for password without entering anything. 
+
+After that go and enter SSH key to both of your repos and copy the `.pub` from key.
+
+Once that is done you need to add a `config` file in `.ssh` folder:
+
+```
+# ~/.ssh/config
+Host *hostname*
+    Hostname *hostname*
+    User git
+    IdentityFile ~/.ssh/*your passwordless ssh key (id_rsa if you used default)*
+```
+
+Test the config by doing:
+
+```
+git clone git@your.hostname.com:username/reponame.git
+```
+
+If this is successful, you should be okay. 
+
+**Note** If you are using 2 different hosts, you will have to make 2 entries in 
+SSH config file.
+
+
