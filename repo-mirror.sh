@@ -1,8 +1,13 @@
 #!/bin/bash
 
+if [[ -z "$1" ]]
+  then
+    echo "No repos.txt file location supplied."
+    exit 1
+fi
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-inputFile="${DIR}/repos.txt"
 mirrorFile="${DIR}/git-mirror.sh"
 
 while IFS= read -r line
@@ -16,4 +21,4 @@ do
 
     ${mirrorFile} ${primary} ${secondary}
 
-done < "$inputFile"
+done < "$1"

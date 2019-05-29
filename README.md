@@ -27,10 +27,10 @@ the clone repository which will be overwritten with data from
 `PRIMARY` repo.
 
 ## Multiple repository transfer
-In order to mirror multiple repositories, you need to fill out
-the repos.txt file with a pair of space separated repositories, 
-each pair in new line. Repositories should be full URL to the
-repository.
+In order to mirror multiple repositories, you need to create 
+the `repos.txt` (or which ever name you'd like to use) file 
+with a pair of space separated repositories, each pair in new line. 
+Repositories should be full URL to the repository.
 
 For example:
 
@@ -40,7 +40,7 @@ https://...repo2.git https://...clone2.git
 https://...repo3.git https://...clone3.git
 ```
 
-Once the file is full, simply run `./repo-mirror.sh`, and rest
+Once the file is full, simply run `./repo-mirror.sh /location/to/repos.txt`, and rest
 will be done automatically.
 
 # Continuous mirroring
