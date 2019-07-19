@@ -30,3 +30,4 @@ fi
 
 git fetch origin
 git push secondary --all
+git push secondary --tags
